@@ -19,7 +19,12 @@ app.get('/json',(req,res)=>{
 })
 
 
-
+app.get('/man',(req,res,next)=>{
+  var string = req.method + " " + req.path + " - " + req.ip;
+  
+  console.log(string);
+  next();
+})
 
 
 
