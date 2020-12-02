@@ -1,9 +1,9 @@
 var express = require('express');
 var app = express();
-console.log("Hello World");
+//console.log("Hello World");
 
 app.get('/',(req,res)=>{
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 })
 
 
