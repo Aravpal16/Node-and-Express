@@ -2,9 +2,19 @@ var express = require('express');
 var app = express();
 //console.log("Hello World");
 
-/*app.get('/',(req,res)=>{
+var myLogger = (req, res, next) => {
+let ClientIp = req.ip
+let path = req.path
+let method = req.method
+
+console.log(method + " " + path + " - " + ClientIp);
+next()
+}
+app.use(myLogger);
+
+app.get('/',(req,res)=>{
   res.sendFile(__dirname + "/views/index.html");
-})*/
+})
 
 app.use(express.static(__dirname + "/public"))
 
@@ -19,12 +29,7 @@ app.get('/json',(req,res)=>{
 })
 
 
-app.get('/',function (req,res,next){
-  var string = req.method + " " + req.path + " - " + req.ip;
-  
-  console.log(string);
-  next()
-})
+
 
 
 
