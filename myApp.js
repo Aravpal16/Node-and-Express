@@ -28,12 +28,12 @@ app.get('/json',(req,res)=>{
   res.json({"message": response});
 })
 
-app.get('/now',(req,res,next)=>{
-  req.time=new Date().toString()
+app.get("/now",(req,res,next)=>{
+  req.time=new Date().toString();
   
   next();
-}, function(req, res) {
-  res.json({"time":req.time);})
+},(req, res) =>{
+  res.send({time:req.time})})
 
 
 
